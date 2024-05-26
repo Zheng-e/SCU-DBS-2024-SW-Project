@@ -10,7 +10,7 @@ exports.init = function*(req,res){
                 bDate date,
                 bAuthor varchar(20),
                 bMem varchar(30),
-                bCnt int check(bCnt>0) not null,
+                bCnt int check(bCnt>=0) not null,
                 bTotalCnt int check(bTotalCnt>=0) not null
             );`
         )
