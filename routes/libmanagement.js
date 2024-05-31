@@ -168,7 +168,7 @@ exports.deleteBook = function*(req,res){
     if(bCnt > bCnt1){
         res.send('<html><body><div id="result" style="display:none">2</div>减少的数量大于该书目前在库数量</body></html>')
         return;
-    }else if(bCnt == bCnt1){
+    }else if(bCnt == bCnt1 && bCnt1 == bTotalCnt){
         yield db.execSQL("DELETE FROM book WHERE bID=?",[bID]);
         res.send('<html><body><div id="result" style="display:none">0</div>成功</body></html>');
         const books = yield db.execSQL('SELECT * FROM book WHERE bID = ?', [bID]);
